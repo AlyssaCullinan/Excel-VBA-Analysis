@@ -1,0 +1,100 @@
+Sub HomeworkFinal1():
+
+    For Each WS In Worksheets
+        WS.Activate
+
+        'identify the variables
+
+
+       Dim Volume As Double
+       Dim Ticker_Symbol As String
+       Dim Yearly_Change As Double
+       Dim Summary_Table_Row As Integer
+       Dim Year_Open As Double
+       Dim Year_Close As Double
+       
+       
+       'Create the Columns of your new info chart
+    
+       Range("K1").Value = "Ticker Symbol"
+       Range("L1").Value = "Yearly Change"
+       Range("M1").Value = "Percent Change"
+       Range("N1").Value = "Total Stock Volume"
+       
+       Range("Q2").Value = "Greatest Percent Increase"
+       Range("Q3").Value = "Greatest Percent Decrease"
+       Range("Q4").Value = "Greatest Total Volume"
+       Range("R1").Value = "Ticker"
+       Range("S1").Value = "Value"
+       
+       'create the counters
+       
+       Summary_Table_Row = 2
+       Yearly_Change = 0
+       Total_Volume = 0
+       
+       row_count = Cells(Rows.Count, "A").End(xlUp).Row
+       
+'tell the machine where the open price is
+
+       Open_Price = Cells(2, "C").Value
+          
+       For i = 2 To row_count
+           
+       'if the cells in row A are the same, then
+           If Cells(i + 1, "A").Value = Cells(i, "A").Value Then
+                Total_Volume = Total_Volume + Cells(i, "G").Value
+           
+           Else
+                Total_Volume = Total_Volume + Cells(i, "G").Value
+                
+                Close_Price = Cells(i, "F").Value
+                
+                Yearly_Change = Close_Price - Open_Price
+                
+                Percentage_Change = Yearly_Change / Open_Price * 100
+                
+               Cells(Summary_Table_Row, "K").Value = Cells(i, "A").Value
+               Cells(Summary_Table_Row, "L").Value = Yearly_Change
+               Cells(Summary_Table_Row, "M").Value = "%" & Percentage_Change
+               Cells(Summary_Table_Row, "N").Value = Total_Volume
+             
+             If Yearly_Change > 0 Then
+                    Range("L" & Summary_Table_Row).Interior.Color = vbGreen
+                ElseIf Yearly_Change < 0 Then
+                    Range("L" & Summary_Table_Row).Interior.Color = vbRed
+                Else
+                    Range("L" & Summary_Table_Row).Interior.Color = vbWhite
+                End If
+                
+                Total_Volume = 0
+
+               Summary_Table_Row = Summary_Table_Row + 1
+               Open_Price = Cells(i + 1, "C").Value
+          
+    Max_Min_Table = 2
+    
+        max_change = "%" & WorksheetFunction.Max(Range("M2:M" & Summary_Table_Row).Value) * 100
+            Range("S2").Value = max_change
+            Index = WorksheetFunction.Match(Range("S2"), Range("M1:M" & Summary_Table_Row).Value, 0)
+            Cells(Max_Min_Table, "R").Value = Cells(Index, "K").Value
+            Max_Min_Table = Max_Min_Table + 1
+        
+        min_change = "%" & WorksheetFunction.Min(Range("M2:M" & Summary_Table_Row).Value) * 100
+            Range("S3").Value = min_change
+            Index = WorksheetFunction.Match(Range("S3"), Range("M1:M" & Summary_Table_Row).Value, 0)
+            Cells(Max_Min_Table, "R").Value = Cells(Index, "K").Value
+            Max_Min_Table = Max_Min_Table + 1
+        
+        max_volume = WorksheetFunction.Max(Range("N2:N" & Summary_Table_Row).Value)
+            Range("S4").Value = max_volume
+            Index = WorksheetFunction.Match(Range("S4"), Range("N1:N" & Summary_Table_Row).Value, 0)
+            Cells(Max_Min_Table, "R").Value = Cells(Index, "K").Value
+            Max_Min_Table = Max_Min_Table + 1
+     
+        
+        End If
+        
+       Next i
+    Next WS
+End Sub
