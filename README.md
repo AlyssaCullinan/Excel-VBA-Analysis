@@ -39,7 +39,6 @@ The VBA script uses the following functionalities:
 
 <br>
 <br>
-<br>
 
 
 <img width="721" alt="Screenshot 2023-09-18 071147" src="https://github.com/AlyssaCullinan/Excel-VBA-Analysis/assets/141466633/912e15cd-dab6-4ac8-8759-11eafd27d1d3">
