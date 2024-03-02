@@ -23,10 +23,12 @@ The script outputs the following information for each stock:
 * Yearly change in stock price
 * Percentage change from the opening price to the closing price
 * Total stock volume
-* The script also identifies and returns the stocks with:
+  
+The script also identifies and returns the stocks with:
     * Greatest percentage increase
     * Greatest percentage decrease
     * Greatest total volume
+    
 ## Functionality
 The VBA script uses the following functionalities:
 * Loops through all the worksheets (years) in the Excel file to analyze each year's stock data.
@@ -34,6 +36,7 @@ The VBA script uses the following functionalities:
 * Identifies the stocks with the greatest percentage increase, greatest percentage decrease, and greatest total volume across all years.
   
 <img width="464" alt="image" src="https://github.com/AlyssaCullinan/Excel-VBA-Analysis/assets/141466633/a9abfd06-8196-49c3-a1f3-d589a2fc448c">
+
 
 
 <img width="721" alt="Screenshot 2023-09-18 071147" src="https://github.com/AlyssaCullinan/Excel-VBA-Analysis/assets/141466633/912e15cd-dab6-4ac8-8759-11eafd27d1d3">
