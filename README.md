@@ -1,4 +1,4 @@
-# Excel-VBA-Analysis
+<img width="941" alt="image" src="https://github.com/AlyssaCullinan/Excel-VBA-Analysis/assets/141466633/9615e13d-a515-4f75-90dd-375458eb5eae">
 
 ## Overview
 This repository contains a VBA script designed to analyze stock market data. The script is designed to loop through all the stocks for one year, extracting key information such as yearly change, percentage change, and total stock volume. The script identifies the stock with the greatest percentage increase, greatest percentage decrease, and greatest total volume across all years.
