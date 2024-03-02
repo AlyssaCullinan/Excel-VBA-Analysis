@@ -18,12 +18,11 @@ This repository contains a VBA script designed to analyze stock market data. The
 
 ## Output
 The script outputs the following information for each stock:
-
 * Ticker symbol
 * Yearly change in stock price
 * Percentage change from the opening price to the closing price
 * Total stock volume
-  
+
 The script also identifies and returns the stocks with:
     * Greatest percentage increase
     * Greatest percentage decrease
